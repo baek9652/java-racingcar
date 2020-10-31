@@ -1,5 +1,7 @@
 package stringCalculator;
 
+import calculatorException.IllegalExpresion;
+import calculatorException.IllegalOperatorSymbol;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -35,7 +37,7 @@ public class InputParserTest {
     void unpairTest(String input) {
         InputParser inputParser = InputParser.of(input, this.operator);
 
-        assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(
+        assertThatExceptionOfType(IllegalExpresion.class).isThrownBy(
                 () -> {
                     inputParser.parseInput();
                 }
