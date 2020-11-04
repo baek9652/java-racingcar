@@ -7,15 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
-class ScoreGeneratorTest {
+class RandomScoreGeneratorTest {
 
     @Test
     @DisplayName("동일 값 출력 확인")
     void equalityTest() {
-        ScoreGenerator scoreGenerator = new ScoreGenerator(0);
-        ScoreGenerator scoreGenerator1 = new ScoreGenerator(0);
+        RandomScoreGenerator scoreGenerator = new RandomScoreGenerator(0);
+        RandomScoreGenerator scoreGenerator1 = new RandomScoreGenerator(0);
 
         int numTry = 10;
 
@@ -35,8 +34,8 @@ class ScoreGeneratorTest {
     @DisplayName("매번 다른 값 출력하는 지 테스트")
     void diverseOutput() {
 
-        ScoreGenerator scoreGenerator = new ScoreGenerator();
-        ScoreGenerator scoreGenerator1 = new ScoreGenerator();
+        RandomScoreGenerator scoreGenerator = new RandomScoreGenerator();
+        RandomScoreGenerator scoreGenerator1 = new RandomScoreGenerator();
 
         int numTry = 100;
 
