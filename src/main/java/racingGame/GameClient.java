@@ -1,5 +1,6 @@
 package racingGame;
 
+import java.util.List;
 import racingGame.View.InputView;
 import racingGame.View.ResultView;
 
@@ -13,8 +14,10 @@ public class GameClient {
 
     for (; !isFinished(currentRound, numRound); currentRound += 1) {
       cars.moves(scoreGenerator);
-      ResultView.printStatus(cars);
+      ResultView.printCurrentWithName(cars);
     }
+
+    ResultView.printWinner(cars);
   }
 
   private static boolean isFinished(int currentRound, int numRound) {
@@ -22,14 +25,14 @@ public class GameClient {
   }
 
   public static void main(String[] args) {
-    int numCar;
+    List<String> users;
     int numRound;
     Cars cars;
 
-    numCar = InputView.askNumCar();
+    users = InputView.askUserNames();
     numRound = InputView.askNumRound();
 
-    cars = Cars.of(numCar);
+    cars = Cars.of(users);
     runGame(cars, numRound);
   }
 

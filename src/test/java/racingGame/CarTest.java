@@ -20,7 +20,7 @@ class CarTest {
   @Test
   @DisplayName("초깃값이 지정된 인스턴스 생성 테스트")
   void locatedCar() {
-    Car car = new Car(1);
+    Car car = Car.of(1);
 
     assertThat(car.getPosition()).isEqualTo(1);
   }

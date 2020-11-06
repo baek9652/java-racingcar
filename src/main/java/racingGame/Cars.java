@@ -13,10 +13,6 @@ public class Cars {
     this.cars = cars;
   }
 
-  public static Cars of(List<Car> cars) {
-    return new Cars(cars);
-  }
-
   public static Cars of(int numCar) {
     if (numCar < 1) {
       throw new IllegalCarsInputRange();
@@ -24,10 +20,19 @@ public class Cars {
 
     List<Car> cars = new Vector<>();
     for (int i = 0; i < numCar; i++) {
-      cars.add(new Car());
+      cars.add(Car.of(i));
     }
 
-    return of(cars);
+    return new Cars(cars);
+  }
+
+  public static Cars of(List<String> names) {
+    List<Car> cars = new Vector<>();
+    for (int i = 0; i < names.size(); i++) {
+      cars.add(Car.of(names.get(i)));
+    }
+
+    return new Cars(cars);
   }
 
   public void moves(ScoreGenerator ScoreGenerator) {
