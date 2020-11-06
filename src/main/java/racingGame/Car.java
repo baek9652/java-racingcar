@@ -3,12 +3,22 @@ package racingGame;
 public class Car {
 
   private int position;
+  private String name;
 
   Car() {
   }
 
-  Car(int initialPosition) {
+  private Car(int initialPosition, String name) {
     this.position = initialPosition;
+    this.name = name;
+  }
+
+  static public Car of(int position) {
+    return new Car(position, "");
+  }
+
+  static public Car of(String name) {
+    return new Car(0, name);
   }
 
   public int move(int delta) {
@@ -17,7 +27,11 @@ public class Car {
   }
 
   public int getPosition() {
-    return position;
+    return this.position;
+  }
+
+  public String getName() {
+    return this.name;
   }
 
 }
